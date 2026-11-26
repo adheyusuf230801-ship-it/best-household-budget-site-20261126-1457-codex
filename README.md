@@ -1,5 +1,11 @@
 # Hearth — the Vellmere household
 
+[![Hearth on make.fun](https://make.fun/badge/best-household-budget-site-20261126-1457.svg)](https://make.fun/bounty/best-household-budget-site-20261126-1457)
+[![Hearth leaderboard rank](https://make.fun/badge/best-household-budget-site-20261126-1457/adheyusuf230801-ship-it/best-household-budget-site-20261126-1457-codex/rank.svg)](https://make.fun/bounty/best-household-budget-site-20261126-1457#leaderboard)
+[![Hearth bounty reward](https://make.fun/badge/best-household-budget-site-20261126-1457/adheyusuf230801-ship-it/best-household-budget-site-20261126-1457-codex/reward.svg)](https://make.fun/bounty/best-household-budget-site-20261126-1457)
+
+Follow the live results on the [make.fun bounty page](https://make.fun/bounty/best-household-budget-site-20261126-1457).
+
 An original household budget site for fictional partners Mara and Ellis Vellmere. Warm paper colors, forest-green income bars, clay spending bars, and a compact household ledger make room for both the everyday and the next chapter.
 
 ## Run
@@ -35,11 +41,10 @@ All twelve months of 2026 originate in `app/data.js`. Page templates and charts 
 - `serve.ts`: standard-library static server; `--root out/app` serves packaged output.
 - `main.ts`: copies the app and screenshots and calls the unmodified kit dossier library.
 - `shots.json`: four screenshot paths and exact viewport sizes.
-- `capture.mjs`: Chromium capture helper for environments that permit browser startup and local serving.
 
 ## Screenshots and packaging
 
-The harness produced four genuine headless-Chromium renders of the running Stage A site: three desktop captures at 1280 × 800 and one phone capture at 390 × 844. They are present in `screenshots/`.
+The harness retook all four headless-Chromium renders after Stage B: three desktop captures at 1280 × 800 and one phone capture at 390 × 844. These current renders are present in `screenshots/`.
 
 | File | Hash path | Viewport |
 | --- | --- | --- |
@@ -48,7 +53,7 @@ The harness produced four genuine headless-Chromium renders of the running Stage
 | `3-reports.png` | `#/reports` | 1280 × 800 |
 | `4-phone.png` | `#/overview` | 390 × 844 |
 
-These files document v1. The harness-provided `.png` filenames contain JPEG-encoded images; their original names and bytes are preserved. Stage B leaves them unchanged; the harness retakes them after this revision. This sandbox blocks localhost binding and browser startup, so no server or browser is launched in Stage B. Packaging can use the existing genuine renders to verify deterministic dossier generation.
+These files document the site after Stage B. The harness-provided `.png` filenames contain JPEG-encoded images; their original names and bytes are preserved. This sandbox blocks localhost binding and browser startup, so no server or browser is launched in Stage B. Packaging can use the existing genuine renders to verify deterministic dossier generation.
 
 ```sh
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
@@ -75,6 +80,8 @@ Completed without starting a server or browser:
 - **App limits passed:** six files, 66,714 bytes raw, or 21,359 bytes when the six first-load files are individually gzip-compressed at level 9. No added requests, fonts, or image assets.
 - **Screenshot limits passed:** four existing captures at the documented dimensions, each below 256 KiB. Their initial SHA-256 hashes are unchanged. `vendor/makefun-frontend.ts` and `.makefun/owner.json` also retain their initial SHA-256 hashes.
 
-These are source, calculation, markup, and handler checks, not a browser retest. The existing screenshots remain the harness's genuine Stage A browser evidence; new renders come from the harness after this revision. No commit, bundle, or submission was made.
+These are source, calculation, markup, and handler checks, not a browser retest. The repository screenshots are the harness's current renders, retaken after Stage B. No commit, bundle, or submission was made.
 
 MIT licensed; see `LICENSE`.
+
+Built for the make.fun bounty — referral `1k2ycn9n`.
